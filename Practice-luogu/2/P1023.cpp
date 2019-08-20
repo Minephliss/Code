@@ -49,7 +49,6 @@ int main()
 
     while (A[n - 1].sell - a > 0)
         A[n++] = Item(A[n - 1].val + 1, A[n - 1].sell - a);
-    cout << n << endl;
     int s = 0, e = n, m;
     bool tell = false;
     while (s < e) {
@@ -64,15 +63,13 @@ int main()
             e = m;
     }
 
-    cout << val(m, 1) << ' ' << m << endl;
-
     int maxn = 0;
     int an = -1;
     for (int key = 0; key < 100000; key++) {
         int maxnum = 0;
         for (int i = 0; i < n; i++) {
-            if (i == 1)
-                cout << val(i, key) << endl;
+            // if (i == 1)
+            //cout << val(i, key) << endl;
             maxnum = max(val(i, key), maxnum);
         }
         if (val(m, key) == maxnum) {
