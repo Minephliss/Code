@@ -1,5 +1,19 @@
 # Code
-Here I saved my codes which edits on my phone or pc.
-It's my first using git, thus, there are some mistakes possiblely.
-## Update 8/20
-https://img.shields.io/powershellgallery/p/DNS.1.1.1.1?color=green&logo=linux&logoColor=blue
+    Here I saved my codes which edits on my phone or pc.
+***
+### Latest Update: 2019/8/20
+### Version Support: G++ 7.4.0
+
+***
+
+## Practice From Luogu
+* Training Ground
+  * [#1](https://github.com/EndermanEM/Code/tree/master/Practice-luogu/1 "Training Ground #1")
+  - [#2](https://github.com/EndermanEM/Code/tree/master/Practice-luogu/2 "Training Ground #2")
+
+## API
+* Graphs
+  * [Graph](https://github.com/EndermanEM/Code/tree/master/API/Graph "Graph")
+  * [DiGraph](https://github.com/EndermanEM/Code/tree/master/API/DiGraph "DiGraph")
+
+Editing
