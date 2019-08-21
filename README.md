@@ -1,5 +1,5 @@
 # Code
-![](https://img.shields.io/badge/Update-19/8/21-blueviolet)   ![](https://img.shields.io/badge/Language-C%2B%2B-blueviolet)  ![](https://img.shields.io/badge/Compiler-G%2B%2B 7.4.0-blueviolet)
+![](https://img.shields.io/badge/Update-19/8/21-blueviolet)   ![](https://img.shields.io/badge/Language-C%2B%2B-blueviolet)  ![](https://img.shields.io/badge/Compiler-G%2B%2B7.4.0-blueviolet)
 ####This repo saved my codes for practicing
 
 ***
@@ -9,9 +9,9 @@
 #### Luogu for algorithm&API for C++
 
 ### Training Place: [Luogu](https://luogu.org "Luogu")
-*  Training Ground
+* Training Ground
   * [Level1](https://github.com/EndermanEM/Code/tree/master/Practice-luogu/1 "Training Ground #1")
-  - [Level2](https://github.com/EndermanEM/Code/tree/master/Practice-luogu/2 "Training Ground #2")
+  * [Level2](https://github.com/EndermanEM/Code/tree/master/Practice-luogu/2 "Training Ground #2")
 
 ## API
 * Graphs
