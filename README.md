@@ -1,19 +1,17 @@
 # Code
-    Here I saved my codes which edits on my phone or pc.
-***
-### Latest Update: 2019/8/20
-### Version Support: G++ 7.4.0
+![Update 19/8/21](https://img.shields.io/badge/Update-19/8/21-blueviolet)   ![Language C++](https://img.shields.io/badge/Language-C%2B%2B-blueviolet)  ![Compiler G++7.4.0](https://img.shields.io/badge/Compiler-G%2B%2B 7.4.0-blueviolet)
+####This repo saved my codes for practicing
 
 ***
 
-## Practice From Luogu
-* Training Ground
-  * [#1](https://github.com/EndermanEM/Code/tree/master/Practice-luogu/1 "Training Ground #1")
-  - [#2](https://github.com/EndermanEM/Code/tree/master/Practice-luogu/2 "Training Ground #2")
+## Practice
+####Luogu for algorithm&API for C++
+###Training Place: [Luogu](https://luogu.org "Luogu")
+*  Training Ground
+  * [Level1](https://github.com/EndermanEM/Code/tree/master/Practice-luogu/1 "Training Ground #1")
+  - [Level2](https://github.com/EndermanEM/Code/tree/master/Practice-luogu/2 "Training Ground #2")
 
 ## API
 * Graphs
   * [Graph](https://github.com/EndermanEM/Code/tree/master/API/Graph "Graph")
   * [DiGraph](https://github.com/EndermanEM/Code/tree/master/API/DiGraph "DiGraph")
-
-Editing
