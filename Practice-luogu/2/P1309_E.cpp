@@ -35,6 +35,15 @@ void Merge_sort(int start, int end)
 		int j = mid + 1;
 		Man temp[200010];
 		int top = 0;
+		
+		if(end - start == 1)
+		{
+			if(men[start].power > men[end].power)
+				men[start].mark++;
+			else
+				men[end].mark++;
+		}
+
 		while(i <= mid && j <= end)
 		{
 			if(men[i] < men[j])
@@ -77,7 +86,6 @@ int main()
 
 	for(int i = 0; i < R; i++)
 	{
-		match();
 		Merge_sort(1, 2 * N);
 	}
 
