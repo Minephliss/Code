@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <queue>
 using namespace std;
 
@@ -21,6 +22,7 @@ float temp, aver;
 int main()
 {
 	float x;
+	Person last(0, 0.0);
 	cin >> n;
 	for(int i = 1; i <= n; i++)
 	{
@@ -31,14 +33,15 @@ int main()
 	while(!que.empty())
 	{
 		cout << que.top().no << ' ';
-		temp += que.top().cost;
+		temp += last.cost;
+		last = que.top();
 		aver += temp;
 		que.pop();
 	}
 	
 	aver /= n;
 
-	cout << endl << aver;
+	cout << endl << fixed << setprecision(2) << aver;
 
 	return 0;
 }
