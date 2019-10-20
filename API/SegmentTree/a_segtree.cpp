@@ -1,0 +1,5 @@
+#include <iostream>
+#include "c_segtree.h"
+using namespace std;
+
+
