@@ -15,8 +15,10 @@
 * [Level2](https://github.com/EndermanEM/Code/tree/master/Practice-luogu/2 "Training Ground #2")
 
 ## API
-* Graphs
 * [Graph](https://github.com/EndermanEM/Code/tree/master/API/Graph "Graph")
 * [DiGraph](https://github.com/EndermanEM/Code/tree/master/API/DiGraph "DiGraph")
 * [HashTable](https://github.com/EndermanEM/Code/tree/master/API/HashTable "HashTable")
 * [SegmentTree](https://github.com/EndermanEM/Code/tree/master/API/SegmentTree "SegmentTree")
+
+## Algorithm
+* [SSSP](https://github.com/EndermanEM/Code/tree/master/Algorithm/Single-Source_ShortestPaths "SSSP")
