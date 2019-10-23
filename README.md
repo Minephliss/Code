@@ -1,5 +1,5 @@
 # Code
-![](https://img.shields.io/badge/Update-10/20/19-blueviolet) ![](https://img.shields.io/badge/Language-C%2B%2B-blueviolet) ![](https://img.shields.io/badge/Compiler-G%2B%2B7.4.0-blueviolet)
+![](https://img.shields.io/badge/Update-10/23/19-blueviolet) ![](https://img.shields.io/badge/Language-C%2B%2B-blueviolet) ![](https://img.shields.io/badge/Compiler-G%2B%2B7.4.0-blueviolet)
 
 #### This repo saved my codes for practicing
 
