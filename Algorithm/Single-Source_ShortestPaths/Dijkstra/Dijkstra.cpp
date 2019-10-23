@@ -53,7 +53,7 @@ void read()
     map = new vector<Node>[Vmount];
     for (int i = 0; i < Nmount; i++) {
         cin >> a >> b >> c;
-        map[a - 1].push_back(Node(b - 1, c - 1));
+        map[a - 1].push_back(Node(b - 1, c));
     }
 }
 
