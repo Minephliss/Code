@@ -64,5 +64,6 @@ int main()
     for (int i = 0; i < Vmount; i++)
         cout << dis[i] << ' ';
 
+	delete[] dis;
     return 0;
 }

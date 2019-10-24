@@ -1,5 +1,5 @@
 # Code
-![](https://img.shields.io/badge/Update-10/23/19-blueviolet) ![](https://img.shields.io/badge/Language-C%2B%2B-blueviolet) ![](https://img.shields.io/badge/Compiler-G%2B%2B7.4.0-blueviolet)
+![](https://img.shields.io/badge/Update-10/24/19-blueviolet) ![](https://img.shields.io/badge/Language-C%2B%2B-blueviolet) ![](https://img.shields.io/badge/Compiler-G%2B%2B7.4.0-blueviolet)
 
 #### This repo saved my codes for practicing
 
@@ -22,3 +22,5 @@
 
 ## Algorithm
 * [SSSP](https://github.com/EndermanEM/Code/tree/master/Algorithm/Single-Source_ShortestPaths "SSSP")
+* [MST](https://github.com/EndermanEM/Code/tree/master/Algorithm/MinimumSpanningTree "MST")
+
