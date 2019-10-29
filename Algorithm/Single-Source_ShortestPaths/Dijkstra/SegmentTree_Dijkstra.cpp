@@ -18,9 +18,9 @@ struct Node {
 		to = a;
 		d = b;
     }
-	bool operator>(const Node& a) const
+	bool operator<(const Node& a) const
 	{
-		return d > a.d;
+		return d < a.d;
 	}
 
 };
@@ -43,7 +43,7 @@ void Build(int l, int r, int rt)
     if (l == r)
 		tree[rt] = Node(0, inf);
 	else{
-		int mid = (l + r) << 1;
+		int mid = (l + r) >> 1;
 		Build(lefs);
 		Build(rigs);
 		Update(rt);
@@ -56,7 +56,7 @@ void add(int l, int r, int rt, Node x)
 		tree[rt] = x;
 	else
 	{
-		int mid = (l + r) << 1;
+		int mid = (l + r) >> 1;
 		if(aim < mid)
 			add(lefs, x);
 		else
@@ -71,7 +71,7 @@ void del(int l, int r, int rt)
 		tree[rt].d = inf;
 	else
 	{
-		int mid = (l + r) << 1;
+		int mid = (l + r) >> 1;
 		if(tree[lef].d < tree[rig].d)
 			del(lefs);
 		else
@@ -82,7 +82,7 @@ void del(int l, int r, int rt)
 
 void init()
 {
-	for(int i = 0; i < N; i++)
+	for(int i = 0; i <= N; i++)
 		dis[i] = inf;	
 }
 
@@ -115,11 +115,12 @@ void read()
 {
 	cin >> N >> M >> S;
 	int a, b, c;
-	map = new vector<Node>[N];
-	for(int i = 0; i < N; i++)
+	map = new vector<Node>[N + 1];
+	dis = new int[N + 1];
+	for(int i = 0; i < M; i++)
 	{
 		cin >> a >> b >> c;
-		map[a - 1].push_back(Node(b - 1, c));
+		map[a].push_back(Node(b, c));
 	}
 }
 
@@ -131,7 +132,7 @@ int main()
 
 	Dijkstra(S);
 
-	for(int i = 0; i < N; i++)
+	for(int i = 1; i <= N; i++)
 		cout << dis[i] << ' ';
 
 	delete[] dis;
