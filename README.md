@@ -1,5 +1,5 @@
 # Code
-![](https://img.shields.io/badge/Update-10/29/19-blueviolet) ![](https://img.shields.io/badge/Language-C%2B%2B-blueviolet) ![](https://img.shields.io/badge/Compiler-G%2B%2B7.4.0-blueviolet)
+![](https://img.shields.io/badge/Update-10/30/19-blueviolet) ![](https://img.shields.io/badge/Language-C%2B%2B-blueviolet) ![](https://img.shields.io/badge/Compiler-G%2B%2B7.4.0-blueviolet)
 
 #### This repo saved my codes for practicing
 
@@ -19,6 +19,7 @@
 * [DiGraph](https://github.com/EndermanEM/Code/tree/master/API/DiGraph "DiGraph")
 * [HashTable](https://github.com/EndermanEM/Code/tree/master/API/HashTable "HashTable")
 * [SegmentTree](https://github.com/EndermanEM/Code/tree/master/API/SegmentTree "SegmentTree")
+* [HighPrecisionComputation](https://github.com/EndermanEM/Code/tree/master/API/HighPrecisionComputation "HighPrecisionComputation")
 
 ## Algorithm
 * [SSSP](https://github.com/EndermanEM/Code/tree/master/Algorithm/Single-Source_ShortestPaths "SSSP")
