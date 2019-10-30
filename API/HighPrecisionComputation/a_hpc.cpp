@@ -1,5 +1,6 @@
 #include "c_hpc.h"
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -91,14 +92,11 @@ bool HPC::operator>=(const HPC& a) const
 
 bool HPC::operator==(const HPC& a) const
 {
-    if(len < a.len)         return false;
-    else if(len > a.len)    return false;
+    if(len != a.len)         return false;
     char strs[maxn];
     a.rbign(strs);
-    for (int i = len - 1; i >= 0; ++i) {
-        if(bign[i] < strs[i])
-            return false;
-        else if(bign[i] > strs[i])
+    for (int i = 0; i < len; ++i) {
+        if(bign[i] != strs[i])
             return false;
     }
     return true;
@@ -110,10 +108,8 @@ bool HPC::operator!=(const HPC& a) const
     else if(len < a.len)    return true;
     char strs[maxn];
     a.rbign(strs);
-    for (int i = len - 1; i >= 0; ++i) {
-        if(bign[i] > strs[i])
-            return true;
-        else if(bign[i] < strs[i])
+    for (int i = 0; i < len; ++i) {
+        if(bign[i] != strs[i])
             return true;
     }
     return false;
@@ -121,25 +117,42 @@ bool HPC::operator!=(const HPC& a) const
 
 HPC HPC::operator+(const HPC& a)
 {
-    char ans[maxn];
-    char strs[maxn];
-    int i;
-    memset(ans, '0', sizeof(ans));
-    int len = max(this -> len, a.rlen());
+	char ans[maxn], strs[maxn];
+    int i, len = max(this -> len, a.rlen());
+	memset(ans, '0', sizeof(ans)); memset(strs, '0', sizeof(strs));
     a.rbign(strs);
     for (i = 0; i < len; ++i) {
-        if(bign[i] + strs[i] - 2 * '0' > 9)
+        if(bign[i] + strs[i] + ans[i] - 3 * '0' > 9)
         {
-            ans[i] = bign[i] + strs[i] - '0' - 10;
+            ans[i] = ans[i] + bign[i] + strs[i] - 2 * '0' - 10;
             ans[i + 1]++;
         }
         else
-            ans[i] = bign[i] + strs[i] - '0';
+            ans[i] = ans[i] + bign[i] + strs[i] - 2 * '0';
     }
     if(ans[i] != '0')
         i++;
-    HPC res(ans, i);
-    return res;
+    return HPC(ans, i);
+}
+
+HPC HPC::operator-(const HPC& a)
+{
+	char ans[maxn], strs[maxn];
+    int i, len = min(this -> len, a.rlen());
+	memset(ans, '0', sizeof(ans)); memset(strs, '0', sizeof(strs));
+    a.rbign(strs);
+    for (i = 0; i < len; ++i) {
+        if(bign[i] + strs[i] + ans[i] - 3 * '0' > 9)
+        {
+            ans[i] = ans[i] + bign[i] + strs[i] - 2 * '0' - 10;
+            ans[i + 1]++;
+        }
+        else
+            ans[i] = ans[i] + bign[i] + strs[i] - 2 * '0';
+    }
+    if(ans[i] != '0')
+        i++;
+    return HPC(ans, i);
 }
 
 istream& operator>>(istream& is, HPC& a)
