@@ -9,4 +9,11 @@ int main()
     HPC x, y;
     cin >> x >> oper >> y;
     if(oper == "+") cout << x + y;
+
+    if(oper == "==") cout << (x == y);
+    if(oper == "!=") cout << (x != y);
+    if(oper == ">") cout << (x > y);
+    if(oper == "<") cout << (x < y);
+    if(oper == ">=") cout << (x >= y);
+    if(oper == "<=") cout << (x <= y);
 }
