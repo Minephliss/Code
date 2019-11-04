@@ -7,15 +7,17 @@ using namespace std;
 HPC::HPC()
 {
     memset(bign, '0', sizeof(bign));
+    minus = false;
     len = 0;
 }
 
-HPC::HPC(char* strs, int len)
+HPC::HPC(char* strs, int len, bool minus)
 {
     for (int i = 0; i < len; ++i) {
         bign[i] = strs[i];    
     }
     this -> len = len;
+    this -> minus = minus;
 }
 
 void HPC::rbign(char* strs) const
@@ -25,6 +27,10 @@ void HPC::rbign(char* strs) const
     }
 }
 
+bool HPC::rminus() const
+{
+    return minus;
+}
 int HPC::rlen() const
 {
     return len;
@@ -36,7 +42,7 @@ bool HPC::operator<(const HPC& a) const
     else if(len > a.len)    return false;
     char strs[maxn];
     a.rbign(strs);
-    for (int i = len - 1; i >= 0; ++i) {
+    for (int i = 0; i < len; ++i){
         if(bign[i] < strs[i])
             return true;
         else if(bign[i] > strs[i])
@@ -51,7 +57,7 @@ bool HPC::operator>(const HPC& a) const
     else if(len < a.len)    return false;
     char strs[maxn];
     a.rbign(strs);
-    for (int i = len - 1; i >= 0; ++i) {
+    for (int i = 0; i < len; ++i){
         if(bign[i] > strs[i])
             return true;
         else if(bign[i] < strs[i])
@@ -66,7 +72,7 @@ bool HPC::operator<=(const HPC& a) const
     else if(len > a.len)    return false;
     char strs[maxn];
     a.rbign(strs);
-    for (int i = len - 1; i >= 0; ++i) {
+    for (int i = 0; i < len; ++i){
         if(bign[i] < strs[i])
             return true;
         else if(bign[i] > strs[i])
@@ -81,7 +87,7 @@ bool HPC::operator>=(const HPC& a) const
     else if(len < a.len)    return false;
     char strs[maxn];
     a.rbign(strs);
-    for (int i = len - 1; i >= 0; ++i) {
+    for (int i = 0; i < len; ++i){
         if(bign[i] > strs[i])
             return true;
         else if(bign[i] < strs[i])
@@ -96,7 +102,9 @@ bool HPC::operator==(const HPC& a) const
     char strs[maxn];
     a.rbign(strs);
     for (int i = 0; i < len; ++i) {
-        if(bign[i] != strs[i])
+        if(bign[i] < strs[i])
+            return false;
+        else if(bign[i] > strs[i])
             return false;
     }
     return true;
@@ -104,22 +112,23 @@ bool HPC::operator==(const HPC& a) const
 
 bool HPC::operator!=(const HPC& a) const
 {
-    if(len > a.len)         return true;
-    else if(len < a.len)    return true;
+    if(len != a.len)         return true;
     char strs[maxn];
     a.rbign(strs);
-    for (int i = 0; i < len; ++i) {
+    for (int i = 0; i < len; ++i)
         if(bign[i] != strs[i])
             return true;
-    }
     return false;
 }
 
-HPC HPC::operator+(const HPC& a)
+HPC HPC::operator+(HPC& a)
 {
-	char ans[maxn], strs[maxn];
-    int i, len = max(this -> len, a.rlen());
-	memset(ans, '0', sizeof(ans)); memset(strs, '0', sizeof(strs));
+    char strs[maxn];
+    if(minus == a.rminus()){
+    char ans[maxn];
+    int i;
+    memset(ans, '0', sizeof(ans));
+    int len = max(this -> len, a.len);
     a.rbign(strs);
     for (i = 0; i < len; ++i) {
         if(bign[i] + strs[i] + ans[i] - 3 * '0' > 9)
@@ -132,41 +141,35 @@ HPC HPC::operator+(const HPC& a)
     }
     if(ans[i] != '0')
         i++;
-    return HPC(ans, i);
-}
-
-HPC HPC::operator-(const HPC& a)
-{
-	char ans[maxn], strs[maxn];
-    int i, len = min(this -> len, a.rlen());
-	memset(ans, '0', sizeof(ans)); memset(strs, '0', sizeof(strs));
-    a.rbign(strs);
-    for (i = 0; i < len; ++i) {
-        if(bign[i] + strs[i] + ans[i] - 3 * '0' > 9)
+    HPC res(ans, i, minus);
+    return res;}
+    else
+    {
+        if(minus)
         {
-            ans[i] = ans[i] + bign[i] + strs[i] - 2 * '0' - 10;
-            ans[i + 1]++;
-        }
+            return a - HPC(strs, len, !minus);}
         else
-            ans[i] = ans[i] + bign[i] + strs[i] - 2 * '0';
+            return *this - HPC(a.bign, a.len, !a.minus);
     }
-    if(ans[i] != '0')
-        i++;
-    return HPC(ans, i);
 }
 
 istream& operator>>(istream& is, HPC& a)
 {
     char stk[maxn]; 
     char ch;
+    bool minus = false;
     int t = 0, p = 0;
     is >> ch;
     while(ch != ' ' && ch != '\n')
     {
-        stk[t++] = ch;
+        if(ch == '-')
+            minus = true;
+        else
+            stk[t++] = ch;
         ch = getchar();
     }
     a.len = t;
+    a.minus = minus;
     while(--t)
         a.bign[p++] = stk[t];
     a.bign[p++] = stk[t];

@@ -9,15 +9,17 @@ const int maxn = 1000;
 
 class HPC {
 private:
-    char bign[maxn];
     int len;
+    bool minus;
+    char bign[maxn];
 
 public:
     HPC();
-    HPC(char* strs, int len);
+    HPC(char* strs, int len, bool minus);
 
     void rbign(char* strs) const;
     int rlen() const;
+    bool rminus() const;
 
     bool operator<(const HPC& a) const;
     bool operator>(const HPC& a) const;
@@ -26,7 +28,7 @@ public:
     bool operator==(const HPC& a) const;
     bool operator!=(const HPC& a) const;
 
-    HPC operator+(const HPC& a);
+    HPC operator+(HPC& a);
     HPC operator-(const HPC& a);
     HPC operator*(const HPC& a);
     HPC operator/(const HPC& a);
