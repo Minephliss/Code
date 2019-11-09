@@ -39,7 +39,6 @@ void read()
     for(int i = 0; i < n; i++)
         for(int j = i; j < n; j++)
         {
-            if(j == i)  continue;
             connect(i, j);
             connect(j, i);
         }
@@ -50,8 +49,9 @@ void judge(int &i)
 {
     if(edgeto[i][1] != -1)
     {
-        i = edgeto[i][1];
+        int temp = edgeto[i][1];
         edgeto[i][1] = -1;
+        i = temp;
     }
     else
         i = edgeto[i][0];
@@ -80,26 +80,32 @@ string combine(int e)
 void dfs(int s, int* marked, string& ans)
 {
     marked[s]++;
+    cout << s << ' ';
     for(int i = 0; i < n; i++)
     {
-        bool ok = false;
-        if(adj[s][i] != "" && marked[i] < 2)
+        if(adj[s][i] != "" && marked[i] <= 2)
         {
-            ok = true;
             if(edgeto[i][0] != -1)
+            {
                 edgeto[i][1] = s;
+                dfs(i, marked, ans);
+                edgeto[i][1] = -1;
+            }
             else
+            {
                 edgeto[i][0] = s;
-            
-            dfs(i, marked, ans);
+                dfs(i, marked, ans);
+                edgeto[i][0] = -1;
+            }
         }
-        if(!ok)
+        if(marked[i] > 2)
         {
             string res = combine(s);
             if(res.length() > ans.length())
                 ans = res;
             else if(res.length() == ans.length())
                 ans = min(res, ans);
+            cout << res << ' ';
         }
     }
 }
@@ -123,7 +129,7 @@ void solve()
         }
     }
 
-    cout << ans;
+//    cout << ans;
 }
 
 int main()
