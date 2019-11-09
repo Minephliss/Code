@@ -2,13 +2,12 @@
 using namespace std;
 
 long long n, k, tot;
-long long ai[201000];
-long long ki[101000];
+long long ai[1000000];
 
 void read()
 {
     cin >> n >> k;
-    for(int i = 0; i < n - 1; i++)
+    for (int i = 0; i < n - 1; i++)
     {
         cin >> ai[i];
         tot += ai[i];
@@ -17,25 +16,25 @@ void read()
 
 void solve()
 {
-    if(k >= n - 1)
+    if (k >= n - 1)
     {
         cout << 0;
         return;
-    };
-    if(k == 0)
+    }
+    if (k == 0)
     {
         cout << tot;
         return;
     }
     long long por = 0;
     long long val = 0;
-    for(int i = 0; i < k; i++)
+    for (int i = 0; i < k; i++)
     {
         val += ai[i];
-        por = val;
     }
+    por = val;
 
-    for(int i = 0; i < n - k; i++)
+    for (int i = 0; i < n - k; i++)
     {
         val += ai[i + k] - ai[i];
         por = max(val, por);
